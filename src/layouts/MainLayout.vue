@@ -11,15 +11,13 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title> ABAC </q-toolbar-title>
-
-        <q-btn flat round dense icon="login" @click="authorize"/>
+        <q-toolbar-title> ABAC  - Демо 1</q-toolbar-title>
       </q-toolbar>
     </q-header>
 
     <q-drawer v-model="leftDrawerOpen" show-if-above bordered>
       <q-list>
-        <q-item-label header> Essential Links </q-item-label>
+        <q-item-label header> Меню </q-item-label>
 
         <EssentialLink
           v-for="link in essentialLinks"
@@ -44,6 +42,10 @@ const linksList = [
     icon: 'business',
   },
   {
+    title: 'Созданные политики',
+    icon: 'ballot',
+  },
+  {
     title: 'Справка',
     icon: 'help_outline',
   },
@@ -59,14 +61,10 @@ export default defineComponent({
   },
 
   methods:{
-    authorize(){
-      alert('autorization')
-    }
   },
 
   setup() {
     const leftDrawerOpen = ref(false);
-
     return {
       essentialLinks: linksList,
       leftDrawerOpen,
